@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProprietaireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,18 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-    
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');    
+
+Route::middleware(['web'])->group(function () {
+   
+    Route::get('proprietaires',[ProprietaireController::class,'index']);
+    Route::get('proprietaires/{id}',[ProprietaireController::class,'show']);
+    Route::put('proprietaires/{id}',[ProprietaireController::class,'update']);
+    Route::delete('proprietaires/delete/{id}',[ProprietaireController::class,'delete']);
+    Route::post('proprietaires',[ProprietaireController::class,'store']);
+
+});
 
 require __DIR__.'/auth.php';
+
+// Route::get('proprietaires',[ProprietaireController::class,'index']);
