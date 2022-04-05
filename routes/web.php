@@ -13,6 +13,14 @@ use App\Http\Controllers\ProprietaireController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('proprietaires',[ProprietaireController::class,'index']);
+Route::get('proprietaires/{id}',[ProprietaireController::class,'show']);
+Route::put('proprietaires/{id}',[ProprietaireController::class,'update']);
+Route::delete('proprietaires/delete/{id}',[ProprietaireController::class,'delete']);
+Route::post('proprietaires',[ProprietaireController::class,'store']);
+Route::get('addProprietaire',function () {
+    return view('proprietaire/addProprietaire');
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,15 +31,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');    
 
 Route::middleware(['web'])->group(function () {
-   
-    Route::get('proprietaires',[ProprietaireController::class,'index']);
-    Route::get('proprietaires/{id}',[ProprietaireController::class,'show']);
-    Route::put('proprietaires/{id}',[ProprietaireController::class,'update']);
-    Route::delete('proprietaires/delete/{id}',[ProprietaireController::class,'delete']);
-    Route::post('proprietaires',[ProprietaireController::class,'store']);
 
 });
 
 require __DIR__.'/auth.php';
 
-// Route::get('proprietaires',[ProprietaireController::class,'index']);
+
