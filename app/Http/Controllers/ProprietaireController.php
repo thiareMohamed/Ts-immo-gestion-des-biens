@@ -18,6 +18,9 @@ class ProprietaireController extends Controller
     }
 
     public function store(Request $request){
+
+        // dd($request->All());
+
         $new_Proprietaire = Proprietaire::create([
             'nom'=>$request->nom,
             'prenom'=>$request->prenom,
@@ -27,10 +30,11 @@ class ProprietaireController extends Controller
             'date_naissance'=>$request->date_naissance,
             'lieu_naissance'=>$request->lieu_naissance,
             'code_identite_national'=>$request->code_identite_national,
-            'numero_identite_national'=>$request->numero_identite_national
+            'numero_identite_national'=>$request->numero_identite_national,
+            'user_id'=>1
 
         ]);
-        return new JsonResponse($new_Proprietaire,201);
+        return view('proprietaire/addProprietaire');
     }
 
     public function update($id,Request $request){
@@ -49,7 +53,6 @@ class ProprietaireController extends Controller
             $message = $get_Proprietaire_to_update;
             $status = 200;
         }
-        return new JsonResponse($message,$status);
     }
 
     public function delete($id,Request $request){
@@ -66,6 +69,5 @@ class ProprietaireController extends Controller
         $get_Proprietaire_to_delete->delete();
         $status =200;
         }
-        return new JsonResponse($message,$status);
     }
 }

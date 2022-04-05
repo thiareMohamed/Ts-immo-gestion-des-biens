@@ -1,7 +1,7 @@
 <style>
     @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
     body {
-        background: #f9f9f9;
+        background-color: #E5E5E5;
         font-family: "Roboto", sans-serif;
     }
 
@@ -76,7 +76,7 @@
 		<div class="container">
 			<div class="d-flex justify-content-between">
                 <h1>Proprietaire</h1>
-                <a class="btn btn-lg btn-success" href="">
+                <a class="btn btn-lg btn-success" href="proprietairesAdd">
                     Ajouter
                 </a>
             </div>
@@ -119,7 +119,7 @@
 								</a>
 								<div class="dropdown-menu" aria-labelledby="triggerId1">
 									<a class="dropdown-item" href="#"><i class="fa fa-pencil mr-1"></i> Edit</a>
-									<a class="dropdown-item text-danger" href="#"><i class="fa fa-trash mr-1"></i> Delete</a>
+									<a class="dropdown-item text-danger" href="proprietaires/delete/{{$Proprietaire['id']}}"><i class="fa fa-trash mr-1"></i> Delete</a>
 								</div>
 							</div>
 						</td>
