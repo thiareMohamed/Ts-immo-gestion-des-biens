@@ -6,7 +6,7 @@
     }
     .get-in-touch {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 20px auto;
     position: relative;
 
     }
@@ -16,7 +16,7 @@
     letter-spacing: 3px;
     font-size: 3.2em;
     line-height: 48px;
-    padding-bottom: 48px;
+    padding-bottom: 28px;
         background: #333333;
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
@@ -24,7 +24,7 @@
 
     .contact-form .form-field {
     position: relative;
-    margin: 32px 0;
+    margin: 22px 0;
     }
     .contact-form .input-text {
     display: block;
@@ -35,7 +35,7 @@
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
-    background: #E5E5E5;
+    background: #fff;
     }
     .contact-form .input-text:focus {
     outline: none;
@@ -93,9 +93,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>TS-Immo Ajouter proprietaire</title>
 </head>
 <body>
+
+    <div class="row w-50" style="z-index: 5px; position: absolute;">
+        <div class="col-3">
+            <nav class ="navbar bg-dark">
+                <ul class ="nav navbar-nav mx-4" style="height: 950px; padding-top: 200px; font-size: 18px;">
+                    <li class ="nav-item">
+                        <a class ="nav-link text-light pt-5" href="/"> Accueil </a>
+                    </li>
+                    <li class ="nav-item">
+                        <a class ="nav-link text-light pt-5" href="/proprietaires"><i class="bi bi-file-earmark-person"></i> Proprietaires </a>
+                    </li>
+                    <li class ="nav-item">
+                        <a class ="nav-link text-light pt-5" href="/proprietes"><i class="bi bi-house-fill"></i> Proprietes </a>
+                    </li>
+                    <li class ="nav-item" style="margin-top: 350px;">
+                        <a class ="nav-link pt-5 text-danger" href="/proprietes"><i class="bi bi-box-arrow-right"></i> Deconnexion </a>
+                    </li>   
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     <section class="main-content">
         <div class="container">
