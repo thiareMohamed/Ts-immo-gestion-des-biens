@@ -119,7 +119,7 @@
 								</a>
 								<div class="dropdown-menu" aria-labelledby="triggerId1">
 									<a class="dropdown-item" href="#"><i class="fa fa-pencil mr-1"></i> Edit</a>
-									<a class="dropdown-item text-danger" href="proprietaires/delete/{{$Proprietaire['id']}}"><i class="fa fa-trash mr-1"></i> Delete</a>
+									<a class="dropdown-item text-danger delete" href="proprietaires/delete/{{$Proprietaire['id']}}"><i class="fa fa-trash mr-1"></i> Delete</a>
 								</div>
 							</div>
 						</td>
@@ -134,5 +134,11 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="">
+        document.querySelector(".delete").addEventListener("click", ()=>{
+            let confirm = confirm("Are you sure you want to delete");
+        })
+    </script>
 </body>
 </html>

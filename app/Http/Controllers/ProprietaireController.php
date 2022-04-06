@@ -69,5 +69,7 @@ class ProprietaireController extends Controller
         $get_Proprietaire_to_delete->delete();
         $status =200;
         }
+        return $this->index();
+
     }
 }
