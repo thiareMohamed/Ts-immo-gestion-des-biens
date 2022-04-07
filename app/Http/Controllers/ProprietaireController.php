@@ -12,9 +12,9 @@ class ProprietaireController extends Controller
         return view('proprietaire/index', ['Proprietaires' => $Proprietaires]);
     }
 
-    public function show($id){
+    public function show($id, Request $request){
         $Proprietaire = Proprietaire::findOrFail($id);
-        return new JsonResponse($Proprietaire,200);
+        return view('proprietaire/editProprietaire', ['Proprietaire' => $Proprietaire]);
     }
 
     public function store(Request $request){
@@ -46,12 +46,20 @@ class ProprietaireController extends Controller
             $status = 404;
         }else{
             $get_Proprietaire_to_update->update([
-                'title'=>$request->title,
-                'description'=>$request->description,
-                'status'=>0
+                'nom'=>$request->nom,
+            'prenom'=>$request->prenom,
+            'civilite'=>$request->civilite,
+            'numero'=>$request->numero,
+            'sexe'=>$request->sexe,
+            'date_naissance'=>$request->date_naissance,
+            'lieu_naissance'=>$request->lieu_naissance,
+            'code_identite_national'=>$request->code_identite_national,
+            'numero_identite_national'=>$request->numero_identite_national,
+            'user_id'=>1
             ]);
             $message = $get_Proprietaire_to_update;
             $status = 200;
+            return $this->index($message);
         }
     }
 

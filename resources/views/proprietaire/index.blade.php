@@ -90,7 +90,7 @@
                     <a class ="nav-link text-light pt-5" href="/proprietes"><i class="bi bi-house-fill"></i> Proprietes </a>
                 </li>
                 <li class ="nav-item" style="margin-top: 350px;">
-                    <a class ="nav-link pt-5 text-danger" href="/proprietes"><i class="bi bi-box-arrow-right"></i> Deconnexion </a>
+                    <a class ="nav-link pt-5 text-danger" href="/logout"><i class="bi bi-box-arrow-right"></i> Deconnexion </a>
                 </li>   
             </ul>
         </nav>
@@ -101,9 +101,10 @@
 		<div class="container">
 			<div class="d-flex justify-content-between">
                 <h1>Proprietaire</h1>
-                <a class="btn btn-lg text-light" href="proprietairesAdd" style="background-color: #7DF19D;">
-                    Ajouter
-                </a>
+                <div>
+                <a class="btn btn-lg text-light" href="/proprietairesAdd" style="background-color: #7DF19D;">Ajouter</a>
+                <!-- <a class="btn btn-lg text-light" href="proprietairesEdit" style="background-color: #7DF19D;">Modifier</a> -->
+                </div>
             </div>
 			<br>
 			<br>
@@ -143,8 +144,8 @@
 											<i class="fa fa-ellipsis-v"></i>
 								</a>
 								<div class="dropdown-menu" aria-labelledby="triggerId1">
-									<a class="dropdown-item" href="#"><i class="fa fa-pencil mr-1"></i> Edit</a>
-									<a class="dropdown-item text-danger delete" href="proprietaires/delete/{{$Proprietaire['id']}}"><i class="fa fa-trash mr-1"></i> Delete</a>
+									<a class="dropdown-item" href="/proprietaires/{{$Proprietaire['id']}}"><i class="fa fa-pencil mr-1"></i> Edit</a>
+									<a class="dropdown-item text-danger delete" href="/proprietaires/delete/{{$Proprietaire['id']}}"><i class="fa fa-trash mr-1"></i> Delete</a>
 								</div>
 							</div>
 						</td>

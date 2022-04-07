@@ -95,7 +95,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>TS-Immo Ajouter proprietaire</title>
+    <title>TS-Immo Modifier proprietaire</title>
 </head>
 <body>
 
@@ -124,19 +124,19 @@
         <div class="container">
             <br>
             <div class="get-in-touch">
-                <h1 class="title">Ajouter proprietaire</h1>
-                <form class="contact-form row" action="proprietairesStore" method="post">
+                <h1 class="title">Modifier proprietaire</h1>
+                <form class="contact-form row" action="/proprietaires/edit/{{$Proprietaire['id']}}" method="post">
                 @csrf
                     <select class="form-field col-lg-6 input-text " name="civilite" required>
                         <option value="1">Mr</option>
                         <option value="0">Mrs</option>
                     </select>
                     <div class="form-field col-lg-6">
-                        <input id="nom" name="nom" class="input-text js-input" type="text" required>
+                        <input id="nom" name="nom" class="input-text js-input" type="text" required value="{{$Proprietaire['nom']}}">
                         <label class="label" for="nom">Nom</label>
                     </div>
                     <div class="form-field col-lg-6 ">
-                        <input id="prenom" name="prenom" class="input-text js-input" type="text" required>
+                        <input id="prenom" name="prenom" class="input-text js-input" type="text" required value="{{$Proprietaire['prenom']}}">
                         <label class="label" for="prenom">Prenom</label>
                     </div>
                     <select class="form-field col-lg-6 input-text " name="sexe" required>
@@ -144,27 +144,27 @@
                         <option value="0">Feminin</option>
                     </select>
                     <div class="form-field col-lg-6 ">
-                        <input id="numero" name="numero" class="input-text js-input" type="number" required>
+                        <input id="numero" name="numero" class="input-text js-input" type="number" required value="{{$Proprietaire['numero']}}">
                         <label class="label" for="numero">Contact</label>
                     </div>
                     <div class="form-field col-lg-12">
-                        <input id="date_naissance" name="date_naissance" class="input-text js-input" type="date" required>
+                        <input id="date_naissance" name="date_naissance" class="input-text js-input" type="date" required value="{{$Proprietaire['date_naissance']}}">
                         <label class="label" for="date_naissance">Date naissance</label>
                     </div>
                     <div class="form-field col-lg-12">
-                        <input id="lieu_naissance" name="lieu_naissance" class="input-text js-input" type="text" required>
+                        <input id="lieu_naissance" name="lieu_naissance" class="input-text js-input" type="text" required value="{{$Proprietaire['lieu_naissance']}}">
                         <label class="label" for="lieu_naissance">Lieu naissance</label>
                     </div>
                     <div class="form-field col-lg-12">
-                        <input id="code_identite_national" name="code_identite_national" class="input-text js-input" type="number" required>
+                        <input id="code_identite_national" name="code_identite_national" class="input-text js-input" type="number" required value="{{$Proprietaire['code_identite_national']}}">
                         <label class="label" for="code_identite_national">Code identite national</label>
                     </div>
                     <div class="form-field col-lg-12">
-                        <input id="numero_identite_national" name="numero_identite_national" class="input-text js-input" type="number" required>
+                        <input id="numero_identite_national" name="numero_identite_national" class="input-text js-input" type="number" required value="{{$Proprietaire['numero_identite_national']}}">
                         <label class="label" for="numero_identite_national">Numero identite national</label>
                     </div>
                     <div class="form-field col-lg-12">
-                        <input class="submit-btn" type="submit" value="Ajouter">
+                        <input class="submit-btn" type="submit" value="Modifier">
                     </div>
                 </form>
                 </div>

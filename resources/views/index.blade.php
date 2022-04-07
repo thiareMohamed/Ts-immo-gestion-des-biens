@@ -19,6 +19,9 @@
         cursor: pointer;
         
     }
+    section{
+        z-index: 50;
+    }
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +35,8 @@
 </head>
 <body>
 
-    <div class="row w-50" style="z-index: 5px; position: absolute; margin-top: -50px;">
-        <div class="col-3">
+    <div class="" style="z-index: 5px; position: absolute; margin-top: -50px; width: 200px;">
+        <div class="">
             
             <nav class ="navbar bg-dark">
                 <a href="/">
@@ -50,7 +53,7 @@
                         <a class ="nav-link text-light pt-5" href="/proprietes"><i class="bi bi-house-fill"></i> Proprietes </a>
                     </li>
                     <li class ="nav-item" style="margin-top: 350px;">
-                        <a class ="nav-link pt-5 text-danger" href="/proprietes"><i class="bi bi-box-arrow-right"></i> Deconnexion </a>
+                        <a class ="nav-link pt-5 text-danger" href="/logout"><i class="bi bi-box-arrow-right"></i> Deconnexion </a>
                     </li>   
                 </ul>
             </nav>
@@ -65,7 +68,7 @@
             </a>
             <a class="carte d-flex justify-content-around"  href="/proprietes">
                 <i class="bi bi-house-fill"></i>
-                <p>Proprietaire</p>
+                <p>Propriete</p>
             </a>
         </section>
     </main>
