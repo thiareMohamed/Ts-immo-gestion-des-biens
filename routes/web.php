@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProprieteController;
 use App\Http\Controllers\ProprietaireController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
@@ -16,23 +17,33 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 */
     
 Route::middleware(['auth'])->group(function () {
+    
+    // Route proprietaired
     Route::get('/proprietaires',[ProprietaireController::class,'index']);
     Route::get('/proprietaires/{id}',[ProprietaireController::class,'show']);
     Route::post('/proprietaires/edit/{id}',[ProprietaireController::class,'update']);
     Route::get('/proprietaires/delete/{id}',[ProprietaireController::class,'delete']);
     Route::post('/proprietairesStore',[ProprietaireController::class,'store']);
-    
     Route::get('/proprietairesAdd',function () {
         return view('/proprietaire/addProprietaire');
     });
 
+    // Route proprietes
+    Route::get('/proprietes',[ProprieteController::class,'index']);
+    Route::get('/proprietes/{id}',[ProprieteController::class,'show']);
+    Route::post('/proprietes/edit/{id}',[ProprieteController::class,'update']);
+    Route::get('/proprietes/delete/{id}',[ProprieteController::class,'delete']);
+    Route::post('/proprietesStore',[ProprieteController::class,'store']);
+    Route::get('/proprietesAdd',function () {
+        return view('/propriete/addPropriete');
+    });
+
+
+
+
     Route::get('/', function () {
         return view('index');
     });
-    
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth'])->name('dashboard');
 
     // LogOut
     Route::get('logout',[AuthenticatedSessionController::class,'destroy']);
