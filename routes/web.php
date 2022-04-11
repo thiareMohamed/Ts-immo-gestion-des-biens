@@ -28,9 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/proprietes/edit/{id}',[ProprieteController::class,'update']);
     Route::get('/proprietes/delete/{id}',[ProprieteController::class,'delete']);
     Route::post('/proprietesStore',[ProprieteController::class,'store']);
-    Route::get('/proprietesAdd',function () {
-        return view('/propriete/addPropriete');
-    });
+    Route::get('/proprietesAdd', [ProprieteController::class,'addPropriete']);
 
     // Route proprietaired
     Route::get('/proprietaires',[ProprietaireController::class,'index']);

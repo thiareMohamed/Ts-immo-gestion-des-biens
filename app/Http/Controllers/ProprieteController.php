@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quartier;
 use App\Models\Propriete;
 use App\Models\Proprietaire;
 use Illuminate\Http\Request;
+use App\Models\Type_propriete;
 
 class ProprieteController extends Controller
 {
@@ -17,7 +19,10 @@ class ProprieteController extends Controller
 
     public function show($id, Request $request){
         $Propriete = Propriete::findOrFail($id);
-        return view('propriete/editPropriete', ['Propriete' => $Propriete]);
+        $Quartiers = Quartier::all();
+        $Type_proprietes = Type_propriete::all();
+        $Proprietaires = Proprietaire::all();
+        return view('propriete/editPropriete', compact('Propriete','Type_proprietes', 'Quartiers', 'Proprietaires'));
     }
 
     public function store(Request $request){    
@@ -25,19 +30,17 @@ class ProprieteController extends Controller
         // dd($request->All());
 
         $new_Propriete = Propriete::create([
-            'nom'=>$request->nom,
-            'prenom'=>$request->prenom,
-            'civilite'=>$request->civilite,
-            'numero'=>$request->numero,
-            'sexe'=>$request->sexe,
-            'date_naissance'=>$request->date_naissance,
-            'lieu_naissance'=>$request->lieu_naissance,
-            'code_identite_national'=>$request->code_identite_national,
-            'numero_identite_national'=>$request->numero_identite_national,
-            'user_id'=>1
-
+            'statut'=>$request->statut,
+            'montant'=>$request->montant,
+            'surface'=>$request->surface,
+            'nombre_piece'=>$request->nombre_piece,
+            'nombre_etage'=>$request->nombre_etage,
+            'location_etage'=>$request->location_etage,
+            'quartier_id'=>$request->quartier_id,
+            'type_propriete_id'=>$request->type_propriete_id,
+            'proprietaire_id'=>$request->proprietaire_id
         ]);
-        return view('propriete/addPropriete');
+        return $this->addPropriete();
     }
 
     public function update($id,Request $request){
@@ -50,15 +53,15 @@ class ProprieteController extends Controller
         }else{
             $get_Propriete_to_update->update([
                 'nom'=>$request->nom,
-            'prenom'=>$request->prenom,
-            'civilite'=>$request->civilite,
-            'numero'=>$request->numero,
-            'sexe'=>$request->sexe,
-            'date_naissance'=>$request->date_naissance,
-            'lieu_naissance'=>$request->lieu_naissance,
-            'code_identite_national'=>$request->code_identite_national,
-            'numero_identite_national'=>$request->numero_identite_national,
-            'user_id'=>1
+                'statut'=>$request->statut,
+                'montant'=>$request->montant,
+                'surface'=>$request->surface,
+                'nombre_piece'=>$request->nombre_piece,
+                'nombre_etage'=>$request->nombre_etage,
+                'location_etage'=>$request->location_etage,
+                'quartier_id'=>$request->quartier_id,
+                'type_propriete_id'=>$request->type_propriete_id,
+                'proprietaire_id'=>$request->proprietaire_id
             ]);
             $message = $get_Propriete_to_update;
             $status = 200;
@@ -82,5 +85,13 @@ class ProprieteController extends Controller
         }
         return $this->index();
 
+    }
+
+    public function addPropriete() {
+        $Quartiers = Quartier::all();
+        $Type_proprietes = Type_propriete::all();
+        $Proprietaires = Proprietaire::all();
+
+        return view('/propriete/addPropriete', compact('Type_proprietes', 'Quartiers', 'Proprietaires'));
     }
 }

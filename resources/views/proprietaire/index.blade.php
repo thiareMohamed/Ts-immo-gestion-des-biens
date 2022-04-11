@@ -113,9 +113,10 @@
 					<tr>
 						<th>Prenom & Nom</th>
 						<th>Civilite</th>
-						<th>Lieu de naissance</th>
+						<th>Date et Lieu de naissance</th>
 						<th>Sexe</th>
-						<th>CNI</th>
+						<th>Code d'Identité National</th>
+						<th>Numero d'Identité National</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -134,8 +135,9 @@
 							</div>
 						</td>
                         <td>{{$Proprietaire['civilite']? "Mr" : "Mrs"}}</td>
-						<td> {{$Proprietaire['lieu_naissance']}} </td>
+						<td> {{$Proprietaire['date_naissance']}} | {{$Proprietaire['lieu_naissance']}}</td>
 						<td>{{$Proprietaire['sexe']? "Masculine" : "Feminine" }}</td>
+						<td>{{$Proprietaire['code_identite_national']}}</td>
 						<td>{{$Proprietaire['numero_identite_national']}}</td>
 						<td>
 							<div class="dropdown open">

@@ -107,7 +107,7 @@
                         <a class ="nav-link text-light pt-5" href="/"> Accueil </a>
                     </li>
                     <li class ="nav-item">
-                        <a class ="nav-link text-light pt-5" href="/proprietaires"><i class="bi bi-file-earmark-person"></i> Proprietaires </a>
+                        <a class ="nav-link text-light pt-5" href="/proprietaires"><i class="bi bi-file-earmark-person"></i>     </a>
                     </li>
                     <li class ="nav-item">
                         <a class ="nav-link text-light pt-5" href="/proprietes"><i class="bi bi-house-fill"></i> Proprietes </a>
@@ -127,6 +127,25 @@
                 <h1 class="title">Ajouter proprietes</h1>
                 <form class="contact-form row" action="proprietesStore" method="post">
                 @csrf
+                    <select class="form-field col-lg-6 input-text " name="proprietaire_id" required>
+                        @foreach($Proprietaires as $Proprietaire)
+                            <option value="{{$Proprietaire->id}}">{{$Proprietaire->prenom}} {{$Proprietaire->nom}}</option>
+                        @endforeach
+                    </select>
+                    <select class="form-field col-lg-6 input-text " name="type_propriete_id" required>
+                        @foreach($Type_proprietes as $Type_propriete)
+                            <option value="{{$Type_propriete->id}}">{{$Type_propriete->libelle}}</option>
+                        @endforeach
+                    </select>
+                    <select class="form-field col-lg-6 input-text " name="quartier_id" required>
+                        @foreach($Quartiers as $Quartier)
+                            <option value="{{$Quartier->id}}">{{$Quartier->libelle}}</option>
+                        @endforeach
+                    </select>
+                    <select class="form-field col-lg-6 input-text " name="statut" required>
+                        <option value="1">Loué</option>
+                        <option value="0">Non loué</option>
+                    </select>
                     <div class="form-field col-lg-6">
                         <input id="montant" name="montant" class="input-text js-input" type="number" required>
                         <label class="label" for="montant">Montant</label>
@@ -135,10 +154,7 @@
                         <input id="surface" name="surface" class="input-text js-input" type="number" required>
                         <label class="label" for="surface">surface</label>
                     </div>
-                    <select class="form-field col-lg-6 input-text " name="statut" required>
-                        <option value="1">vrai</option>
-                        <option value="0">faux</option>
-                    </select>
+
                     <div class="form-field col-lg-6">
                         <input id="nombre_piece" name="nombre_piece" class="input-text js-input" type="number" required>
                         <label class="label" for="nombre_piece">Nombre de piece</label>
@@ -151,12 +167,6 @@
                         <input id="location_etage" name="location_etage" class="input-text js-input" type="number" required>
                         <label class="label" for="location_etage">Location etage</label>
                     </div>
-
-                    <!-- <select class="form-field col-lg-6 input-text " name="statut" required>
-                        <option value="1">vrai</option>
-                        <option value="0">faux</option>
-                    </select>
-                    -->
 
                     <div class="form-field col-lg-12">
                         <input class="submit-btn" type="submit" value="Ajouter">

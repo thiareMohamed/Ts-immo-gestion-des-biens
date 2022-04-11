@@ -110,7 +110,7 @@
                         <a class ="nav-link text-light pt-5" href="/proprietaires"><i class="bi bi-file-earmark-person"></i> Proprietaires </a>
                     </li>
                     <li class ="nav-item">
-                        <a class ="nav-link text-light pt-5" href="/proprietes"><i class="bi bi-house-fill"></i> Proprietes </a>
+                        <a class ="nav-link text-light pt-5" href="/proprietes"><i class="bi bi-house-fill"></i> Proprie    tes </a>
                     </li>
                     <li class ="nav-item" style="margin-top: 350px;">
                         <a class ="nav-link pt-5 text-danger" href="/logout"><i class="bi bi-box-arrow-right"></i> Deconnexion </a>
@@ -127,42 +127,47 @@
                 <h1 class="title">Modifier proprietaire</h1>
                 <form class="contact-form row" action="/proprietes/edit/{{$Propriete['id']}}" method="post">
                 @csrf
-                    <select class="form-field col-lg-6 input-text " name="civilite" required>
-                        <option value="1">Mr</option>
-                        <option value="0">Mrs</option>
+                    <select class="form-field col-lg-6 input-text " name="proprietaire_id" required>
+                        @foreach($Proprietaires as $Proprietaire)
+                            <option value="{{$Proprietaire->id}}">{{$Proprietaire->prenom}} {{$Proprietaire->nom}}</option>
+                        @endforeach
+                    </select>
+                    <select class="form-field col-lg-6 input-text " name="type_propriete_id" required>
+                        @foreach($Type_proprietes as $Type_propriete)
+                            <option value="{{$Type_propriete->id}}">{{$Type_propriete->libelle}}</option>
+                        @endforeach
+                    </select>
+                    <select class="form-field col-lg-6 input-text " name="quartier_id" required>
+                        @foreach($Quartiers as $Quartier)
+                            <option value="{{$Quartier->id}}">{{$Quartier->libelle}}</option>
+                        @endforeach
+                    </select>
+                    <select class="form-field col-lg-6 input-text " name="statut" required>
+                        <option value="1">Loué</option>
+                        <option value="0">Non loué</option>
                     </select>
                     <div class="form-field col-lg-6">
-                        <input id="nom" name="nom" class="input-text js-input" type="text" required value="{{$Propriete['nom']}}">
-                        <label class="label" for="nom">Nom</label>
+                        <input id="montant" name="montant" class="input-text js-input" type="number" required value="{{$Propriete->montant}}">
+                        <label class="label" for="montant">Montant</label>
                     </div>
-                    <div class="form-field col-lg-6 ">
-                        <input id="prenom" name="prenom" class="input-text js-input" type="text" required value="{{$Propriete['prenom']}}">
-                        <label class="label" for="prenom">Prenom</label>
+                    <div class="form-field col-lg-6">
+                        <input id="surface" name="surface" class="input-text js-input" type="number" required value="{{$Propriete->surface}}">
+                        <label class="label" for="surface">surface</label>
                     </div>
-                    <select class="form-field col-lg-6 input-text " name="sexe" required>
-                        <option value="1">Masculin</option>
-                        <option value="0">Feminin</option>
-                    </select>
-                    <div class="form-field col-lg-6 ">
-                        <input id="numero" name="numero" class="input-text js-input" type="number" required value="{{$Propriete['numero']}}">
-                        <label class="label" for="numero">Contact</label>
+
+                    <div class="form-field col-lg-6">
+                        <input id="nombre_piece" name="nombre_piece" class="input-text js-input" type="number" required value="{{$Propriete->nombre_piece}}">
+                        <label class="label" for="nombre_piece">Nombre de piece</label>
                     </div>
-                    <div class="form-field col-lg-12">
-                        <input id="date_naissance" name="date_naissance" class="input-text js-input" type="date" required value="{{$Propriete['date_naissance']}}">
-                        <label class="label" for="date_naissance">Date naissance</label>
+                    <div class="form-field col-lg-6">
+                        <input id="nombre_etage" name="nombre_etage" class="input-text js-input" type="number" required value="{{$Propriete->nombre_etage}}">
+                        <label class="label" for="nombre_etage">Nombre d'etage</label>
                     </div>
-                    <div class="form-field col-lg-12">
-                        <input id="lieu_naissance" name="lieu_naissance" class="input-text js-input" type="text" required value="{{$Propriete['lieu_naissance']}}">
-                        <label class="label" for="lieu_naissance">Lieu naissance</label>
+                    <div class="form-field col-lg-6">
+                        <input id="location_etage" name="location_etage" class="input-text js-input" type="number" required value="{{$Propriete->location_etage}}">
+                        <label class="label" for="location_etage">Location etage</label>
                     </div>
-                    <div class="form-field col-lg-12">
-                        <input id="code_identite_national" name="code_identite_national" class="input-text js-input" type="number" required value="{{$Propriete['code_identite_national']}}">
-                        <label class="label" for="code_identite_national">Code identite national</label>
-                    </div>
-                    <div class="form-field col-lg-12">
-                        <input id="numero_identite_national" name="numero_identite_national" class="input-text js-input" type="number" required value="{{$Propriete['numero_identite_national']}}">
-                        <label class="label" for="numero_identite_national">Numero identite national</label>
-                    </div>
+
                     <div class="form-field col-lg-12">
                         <input class="submit-btn" type="submit" value="Modifier">
                     </div>
