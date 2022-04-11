@@ -126,7 +126,7 @@
 						<td>
 							<div class="user-info">
 								<div class="user-info__img">
-									<img src="user1.jpg" alt="User Img">
+									<img src="pro.jpg" alt="User Img">
 								</div>
 								<div class="user-info__basic">
 									<h5 class="mb-0">{{$Proprietaire['prenom']}} {{$Proprietaire['nom']}}</h5>
