@@ -124,45 +124,40 @@
         <div class="container">
             <br>
             <div class="get-in-touch">
-                <h1 class="title">Ajouter proprietaire</h1>
+                <h1 class="title">Ajouter proprietes</h1>
                 <form class="contact-form row" action="proprietesStore" method="post">
                 @csrf
-                    <select class="form-field col-lg-6 input-text " name="civilite" required>
-                        <option value="1">Mr</option>
-                        <option value="0">Mrs</option>
+                    <div class="form-field col-lg-6">
+                        <input id="montant" name="montant" class="input-text js-input" type="number" required>
+                        <label class="label" for="montant">Montant</label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <input id="surface" name="surface" class="input-text js-input" type="number" required>
+                        <label class="label" for="surface">surface</label>
+                    </div>
+                    <select class="form-field col-lg-6 input-text " name="statut" required>
+                        <option value="1">vrai</option>
+                        <option value="0">faux</option>
                     </select>
                     <div class="form-field col-lg-6">
-                        <input id="nom" name="nom" class="input-text js-input" type="text" required>
-                        <label class="label" for="nom">Nom</label>
+                        <input id="nombre_piece" name="nombre_piece" class="input-text js-input" type="number" required>
+                        <label class="label" for="nombre_piece">Nombre de piece</label>
                     </div>
-                    <div class="form-field col-lg-6 ">
-                        <input id="prenom" name="prenom" class="input-text js-input" type="text" required>
-                        <label class="label" for="prenom">Prenom</label>
+                    <div class="form-field col-lg-6">
+                        <input id="nombre_etage" name="nombre_etage" class="input-text js-input" type="number" required>
+                        <label class="label" for="nombre_etage">Nombre d'etage</label>
                     </div>
-                    <select class="form-field col-lg-6 input-text " name="sexe" required>
-                        <option value="1">Masculin</option>
-                        <option value="0">Feminin</option>
+                    <div class="form-field col-lg-6">
+                        <input id="location_etage" name="location_etage" class="input-text js-input" type="number" required>
+                        <label class="label" for="location_etage">Location etage</label>
+                    </div>
+
+                    <!-- <select class="form-field col-lg-6 input-text " name="statut" required>
+                        <option value="1">vrai</option>
+                        <option value="0">faux</option>
                     </select>
-                    <div class="form-field col-lg-6 ">
-                        <input id="numero" name="numero" class="input-text js-input" type="number" required>
-                        <label class="label" for="numero">Contact</label>
-                    </div>
-                    <div class="form-field col-lg-12">
-                        <input id="date_naissance" name="date_naissance" class="input-text js-input" type="date" required>
-                        <label class="label" for="date_naissance">Date naissance</label>
-                    </div>
-                    <div class="form-field col-lg-12">
-                        <input id="lieu_naissance" name="lieu_naissance" class="input-text js-input" type="text" required>
-                        <label class="label" for="lieu_naissance">Lieu naissance</label>
-                    </div>
-                    <div class="form-field col-lg-12">
-                        <input id="code_identite_national" name="code_identite_national" class="input-text js-input" type="number" required>
-                        <label class="label" for="code_identite_national">Code identite national</label>
-                    </div>
-                    <div class="form-field col-lg-12">
-                        <input id="numero_identite_national" name="numero_identite_national" class="input-text js-input" type="number" required>
-                        <label class="label" for="numero_identite_national">Numero identite national</label>
-                    </div>
+                    -->
+
                     <div class="form-field col-lg-12">
                         <input class="submit-btn" type="submit" value="Ajouter">
                     </div>

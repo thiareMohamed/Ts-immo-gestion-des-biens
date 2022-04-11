@@ -66,7 +66,7 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-    <title>TS-immo proprietaires</title>
+    <title>TS-immo proprietes</title>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -84,7 +84,7 @@
                     <a class ="nav-link text-light pt-5" href="/"> Accueil </a>
                 </li>
                 <li class ="nav-item">
-                    <a class ="nav-link text-light pt-5" href="/proprietaires"><i class="bi bi-file-earmark-person"></i> Proprietaires </a>
+                    <a class ="nav-link text-light pt-5" href="/Proprietes"><i class="bi bi-file-earmark-person"></i> Proprietes </a>
                 </li>
                 <li class ="nav-item">
                     <a class ="nav-link text-light pt-5" href="/proprietes"><i class="bi bi-house-fill"></i> Proprietes </a>
@@ -100,10 +100,10 @@
 	<section class="main-content">
 		<div class="container">
 			<div class="d-flex justify-content-between">
-                <h1>Proprietaire</h1>
+                <h1>Proprietes</h1>
                 <div>
                 <a class="btn btn-lg text-light" href="/proprietesAdd" style="background-color: #7DF19D;">Ajouter</a>
-                <!-- <a class="btn btn-lg text-light" href="proprietairesEdit" style="background-color: #7DF19D;">Modifier</a> -->
+                <!-- <a class="btn btn-lg text-light" href="ProprietesEdit" style="background-color: #7DF19D;">Modifier</a> -->
                 </div>
             </div>
 			<br>
@@ -111,32 +111,43 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Prenom & Nom</th>
-						<th>Civilite</th>
-						<th>Lieu de naissance</th>
-						<th>Sexe</th>
-						<th>CNI</th>
-						<th>Actions</th>
+						<th>id</th>
+						<th>Proprietaire</th>
+                        <th>Type propriete</th>
+						<th>Montant</th>
+						<th>Statut</th>
+						<th>Suface</th>
+						<th>Nombre piece</th>
+						<th>Nombre etage</th>
+						<th>Location etage</th>
+						<th>Quartier</th>
+						
+
 					</tr>
 				</thead>
 				<tbody>
-                @foreach($Proprietaires as $Proprietaire)
+                @foreach($Proprietes as $Propriete)
 					<tr>
+						<td>{{$Propriete['id']}}</td>
 						<td>
 							<div class="user-info">
 								<div class="user-info__img">
 									<img src="user1.jpg" alt="User Img">
 								</div>
 								<div class="user-info__basic">
-									<h5 class="mb-0">{{$Proprietaire['prenom']}} {{$Proprietaire['nom']}}</h5>
-									<p class="text-muted mb-0">{{$Proprietaire['numero']}}</p>
+									<h5 class="mb-0">{{$Propriete->proprietaire->prenom}} {{$Propriete->proprietaire->nom}}</h5>
 								</div>
 							</div>
 						</td>
-                        <td>{{$Proprietaire['civilite']? "Mr" : "Mrs"}}</td>
-						<td> {{$Proprietaire['lieu_naissance']}} </td>
-						<td>{{$Proprietaire['sexe']? "Masculine" : "Feminine" }}</td>
-						<td>{{$Proprietaire['numero_identite_national']}}</td>
+						<td>{{$Propriete->type_propriete->libelle}}</td>
+						<td>{{$Propriete['montant']}}</td>
+						<td>{{$Propriete['statut']? "Loué" : "Non Loué"}}</td>
+						<td>{{$Propriete['surface']}}</td>
+						<td>{{$Propriete['nombre_piece']}}</td>
+						<td>{{$Propriete['nombre_etage']}}</td>
+						<td>{{$Propriete['location_etage']}}</td>
+						<td>{{$Propriete->quartier->libelle}}</td>
+
 						<td>
 							<div class="dropdown open">
 								<a href="#!" class="px-2" id="triggerId1" data-toggle="dropdown" aria-haspopup="true"
@@ -144,8 +155,8 @@
 											<i class="fa fa-ellipsis-v"></i>
 								</a>
 								<div class="dropdown-menu" aria-labelledby="triggerId1">
-									<a class="dropdown-item" href="/proprietes/{{$Proprietaire['id']}}"><i class="fa fa-pencil mr-1"></i> Edit</a>
-									<a class="dropdown-item text-danger delete" href="/proprietes/delete/{{$Proprietaire['id']}}"><i class="fa fa-trash mr-1"></i> Delete</a>
+									<a class="dropdown-item" href="/proprietes/{{$Propriete['id']}}"><i class="fa fa-pencil mr-1"></i> Edit</a>
+									<a class="dropdown-item text-danger delete" href="/proprietes/delete/{{$Propriete['id']}}"><i class="fa fa-trash mr-1"></i> Delete</a>
 								</div>
 							</div>
 						</td>

@@ -18,14 +18,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
     
 Route::middleware(['auth'])->group(function () {
     
-    // Route proprietaired
-    Route::get('/proprietaires',[ProprietaireController::class,'index']);
-    Route::get('/proprietaires/{id}',[ProprietaireController::class,'show']);
-    Route::post('/proprietaires/edit/{id}',[ProprietaireController::class,'update']);
-    Route::get('/proprietaires/delete/{id}',[ProprietaireController::class,'delete']);
-    Route::post('/proprietairesStore',[ProprietaireController::class,'store']);
-    Route::get('/proprietairesAdd',function () {
-        return view('/proprietaire/addProprietaire');
+    Route::get('/', function () {
+        return view('index');
     });
 
     // Route proprietes
@@ -38,12 +32,17 @@ Route::middleware(['auth'])->group(function () {
         return view('/propriete/addPropriete');
     });
 
-
-
-
-    Route::get('/', function () {
-        return view('index');
+    // Route proprietaired
+    Route::get('/proprietaires',[ProprietaireController::class,'index']);
+    Route::get('/proprietaires/{id}',[ProprietaireController::class,'show']);
+    Route::post('/proprietaires/edit/{id}',[ProprietaireController::class,'update']);
+    Route::get('/proprietaires/delete/{id}',[ProprietaireController::class,'delete']);
+    Route::post('/proprietairesStore',[ProprietaireController::class,'store']);
+    Route::get('/proprietairesAdd',function () {
+        return view('/proprietaire/addProprietaire');
     });
+
+    
 
     // LogOut
     Route::get('logout',[AuthenticatedSessionController::class,'destroy']);
