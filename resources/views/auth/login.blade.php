@@ -56,7 +56,9 @@
                 <x-button class="ml-3">
                     {{ __('Se connecter') }}
                 </x-button>
+                
             </div>
+            <a href="register">S'Inscrire</a>
         </form>
     </x-auth-card>
 </x-guest-layout>

@@ -107,7 +107,7 @@
                         <a class ="nav-link text-light pt-5" href="/"> Accueil </a>
                     </li>
                     <li class ="nav-item">
-                        <a class ="nav-link text-light pt-5" href="/proprietaires"><i class="bi bi-file-earmark-person"></i>     </a>
+                        <a class ="nav-link text-light pt-5" href="/proprietaires"><i class="bi bi-file-earmark-person"></i>Proprietaires     </a>
                     </li>
                     <li class ="nav-item">
                         <a class ="nav-link text-light pt-5" href="/proprietes"><i class="bi bi-house-fill"></i> Proprietes </a>

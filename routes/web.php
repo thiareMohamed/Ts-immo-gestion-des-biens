@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProprieteController;
 use App\Http\Controllers\ProprietaireController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
@@ -40,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
         return view('/proprietaire/addProprietaire');
     });
 
-    
+    Route::get('register',[RegisteredUserController::class,'create']);
 
     // LogOut
     Route::get('logout',[AuthenticatedSessionController::class,'destroy']);
